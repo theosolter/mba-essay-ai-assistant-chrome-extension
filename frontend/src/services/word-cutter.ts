@@ -1,4 +1,3 @@
-// IMPORTANT: All type field mappings between frontend and backend are documented in ./type-mappings.ts
 import { API_BASE_URL } from '@/config'
 import { 
     WordCutRequest,
