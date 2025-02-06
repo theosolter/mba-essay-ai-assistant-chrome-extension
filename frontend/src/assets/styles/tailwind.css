@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 221.2 83.2% 53.3%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221.2 83.2% 53.3%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 224.3 76.3% 48%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles for the MBA Essay Assistant */
+.mba-essay-assistant {
+  @apply text-sm;
+}
+
+.mba-essay-assistant h1 {
+  @apply text-xl font-bold mb-4;
+}
+
+.mba-essay-assistant h2 {
+  @apply text-lg font-semibold mb-2;
+}
+
+.mba-essay-assistant p {
+  @apply mb-2;
+}
+
+.mba-essay-assistant .feedback-item,
+.mba-essay-assistant .suggestion-item {
+  @apply bg-card text-card-foreground p-3 rounded-md mb-2;
+}
+
+.mba-essay-assistant .feedback-title,
+.mba-essay-assistant .suggestion-title {
+  @apply font-semibold mb-1;
+}
+
+.mba-essay-assistant .suggestion-example {
+  @apply text-muted-foreground italic mt-1;
+}
+
+/* Scrollbar styles */
+.mba-essay-assistant ::-webkit-scrollbar {
+  @apply w-2;
+}
+
+.mba-essay-assistant ::-webkit-scrollbar-track {
+  @apply bg-secondary;
+}
+
+.mba-essay-assistant ::-webkit-scrollbar-thumb {
+  @apply bg-primary rounded-full;
+}
+
+.mba-essay-assistant ::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/80;
+}
+
+/* Add these styles for the select dropdown */
+[data-radix-popper-content-wrapper] {
+  position: fixed !important;
+  z-index: 99999 !important;
+}
+
+.select-content {
+  background-color: hsl(var(--popover));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.select-item {
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.select-item:hover {
+  background-color: hsl(var(--accent));
+}
+
+/* Ensure the sidebar content is above Google Docs but below dropdowns */
+#mba-essay-assistant-sidebar {
+  z-index: 9000;
+}
+
+/* Ensure dropdowns are above the sidebar */
+#mba-essay-assistant-sidebar [data-radix-popper-content-wrapper] {
+  z-index: 9999;
+}
+
