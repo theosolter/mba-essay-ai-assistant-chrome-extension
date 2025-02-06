@@ -17,7 +17,7 @@ export interface BaseEssayRequest {
 export interface ContentSuggestion {
     suggestion: string;
     howToApply: string;
-    sectionToImprove: string;
+    originalText: string;
     improvedVersion: string;
 }
 

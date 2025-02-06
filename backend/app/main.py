@@ -19,8 +19,8 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.StreamHandler(sys.stdout),  # Logs to console
-        logging.FileHandler('app.log')      # Logs to file
+        logging.StreamHandler(sys.stdout),
+        logging.FileHandler('app.log')
     ]
 )
 
@@ -49,7 +49,6 @@ setup_cors(app)
 app.middleware("http")(error_handling_middleware)
 settings = Settings()
 
-# Initialize services
 essay_analyzer = EssayAnalyzer()
 rag_service = RAGService()
 word_cutter = WordCutter()
@@ -57,14 +56,12 @@ word_cutter = WordCutter()
 @app.post("/api/analyze", response_model=AnalysisResponse)
 async def analyze_essay(request: AnalysisRequest):
     try:
-        # Get relevant examples and guidelines using RAG
         context = await rag_service.get_relevant_context(
             essay_text=request.essay_text,
             essay_prompt=request.essay_prompt,
             school=request.school
         )
         
-        # Analyze essay with context
         analysis = await essay_analyzer.analyze(
             essay_text=request.essay_text,
             essay_prompt=request.essay_prompt,
@@ -85,7 +82,6 @@ async def cut_words(request: WordCutRequest):
         raise HTTPException(status_code=400, detail="Word limit is required")
         
     try:
-        # Cut words with context using the dedicated service
         result = await word_cutter.cut_words(
             essay_text=request.essay_text,
             essay_prompt=request.essay_prompt,

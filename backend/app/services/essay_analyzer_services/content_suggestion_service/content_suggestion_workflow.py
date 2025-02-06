@@ -92,20 +92,3 @@ class ContentSuggestionWorkflow:
                 "error_type": type(e).__name__
             })
             raise RuntimeError(f"Failed to analyze essay: {str(e)}") from e
-
-def extract_writing_style(state: WorkflowState) -> WorkflowState:
-    """Gets writing style patterns from the essay"""
-    agent = WritingStyleExtractionAgent()
-    state.writing_style_analysis = agent.analyze_writing_style(
-        state.essay_text,
-        state.rag_context
-    )
-    return state
-
-def extract_evaluation_criteria(state: WorkflowState) -> WorkflowState:
-    """Extracts evaluation criteria from feedback examples"""
-    agent = FeedbackCriteriaExtractionAgent()
-    state.feedback_framework = agent.extract_criteria(
-        state.rag_context
-    )
-    return state 
