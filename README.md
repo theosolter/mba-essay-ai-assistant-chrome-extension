@@ -1,4 +1,12 @@
-# MBA Essay Assistant
+# MBA Essay Analyzer: A Chrome extension for Google Docs that helps MBA applicants write compelling essays.
+
+This extension analyzes and refines your MBA application essays directly within Google Docs. Leveraging a unique backend powered by Retrieval-Augmented Generation (RAG) and an agentic workflow, it provides targeted feedback on essay structure, flow, word choice, and content. The system learns from a vector database of successful essays, school-specific examples, prompt information, and feedback data to offer personalized suggestions for improvement. Cut unnecessary words and strengthen your narrative to craft a winning MBA application.
+
+[Watch a demo](https://drive.google.com/file/d/1POUQVKItoE5QSWmtWCCpJHuwFlPb3ac8/view?usp=drive_link) - **Please note: This demo is slightly outdated and does not include the latest agentic workflow features. An updated demo is coming soon!**
+
+## Agentic workflow diagram
+
+![Untitled drawing (1)](https://github.com/user-attachments/assets/ff2aed7c-08aa-469e-b391-2fd0cf0cb2b9)
 
 ## Setup Instructions
 
